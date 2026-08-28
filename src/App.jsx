@@ -16,6 +16,7 @@ import Followers from "./components/Followers";
 import Following from "./components/Following";
 import ForYou from "./Pages/ForYou/ForYou";
 import UpdatePost from "./components/UpdatePost";
+import NotFound from "./Pages/NotFound/NotFound";
 function App() {
   return (
     <>
@@ -38,7 +39,7 @@ function App() {
         }}
       />
       <UserProvider>
-        <BrowserRouter >
+        <BrowserRouter>
           <Routes>
             <Route
               path="/"
@@ -62,6 +63,7 @@ function App() {
             </Route>
 
             <Route path="/signin" element={<Signin />} />
+            <Route path="*" element={<NotFound />} />
             <Route path="/signup" element={<Signup />} />
           </Routes>
         </BrowserRouter>

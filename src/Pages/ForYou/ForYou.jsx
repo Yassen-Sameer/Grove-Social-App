@@ -18,6 +18,13 @@ export default function ForYou() {
   const { userInfo, token } = useContext(userContext);
   const navigate = useNavigate();
 
+  function handlePostShared(newPost) {
+    setPosts((prev) => [
+      { ...newPost, _id: newPost._id || newPost.id },
+      ...prev,
+    ]);
+  }
+
   async function getFeedPosts() {
     setIsLoading(true);
     setError(false);
@@ -147,6 +154,9 @@ export default function ForYou() {
               publisherID={post.user._id}
               publisherName={post.user.name}
               postDiscribation={post.body}
+              onShare={handlePostShared}
+              isShare={post.isShare}
+              sharedPost={post.sharedPost}
             />
           ))
         ) : (
