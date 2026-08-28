@@ -21,6 +21,7 @@ export default function Notifications() {
     comment_post: "commented on your post",
     share_post: "shared your post",
     follow_user: "started following you",
+    mention_user : "mentioned you"
   };
 
   async function getNotifications() {
