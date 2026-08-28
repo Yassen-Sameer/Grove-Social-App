@@ -67,6 +67,13 @@ export default function ProfilePage() {
     }
   }
 
+  function handlePostShared(newPost) {
+    setPosts((prev) => [
+      { ...newPost, _id: newPost._id || newPost.id },
+      ...prev,
+    ]);
+  }
+
   const handlePostDeleted = (deletedID) => {
     setPosts((prev) => prev.filter((p) => p.id !== deletedID));
   };
@@ -330,6 +337,9 @@ export default function ProfilePage() {
                             publisherID={post.user._id}
                             publisherName={post.user.name}
                             postDiscribation={post.body}
+                            onShare={handlePostShared}
+                            isShare={post.isShare}
+                            sharedPost={post.sharedPost}
                           />
                         ))}
                       </div>
