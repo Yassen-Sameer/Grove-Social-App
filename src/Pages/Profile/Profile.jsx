@@ -377,6 +377,9 @@ export default function ProfilePage() {
                           publisherName={post.user.name}
                           postDiscribation={post.body}
                           onBookMark={handlePostbookmark}
+                          onShare={handlePostShared}
+                          isShare={post.isShare}
+                          sharedPost={post.sharedPost}
                         />
                       ))}
                     </div>
