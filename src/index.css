@@ -1,0 +1,46 @@
+@import "tailwindcss";
+body {
+  font-family: "Poppins", sans-serif;
+}
+::selection {
+  background-color: #1db854;
+  color: #0a1f18;
+}
+
+::-moz-selection {
+  background-color: #1db854;
+  color: #0a1f18;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 30px #112b22 inset !important;
+  -webkit-text-fill-color: #a3f5c3 !important;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+::-webkit-scrollbar {
+  display: none !important;
+}
+
+* {
+  -ms-overflow-style: none !important;
+  scrollbar-width: none !important;
+}
+
+@layer components {
+  .main-bg {
+    @apply w-full bg-cover bg-center bg-no-repeat flex justify-center items-center relative overflow-hidden;
+    height: 100vh;
+    height: 100dvh;
+  }
+
+  .overlay {
+    @apply inset-0 bg-black/60 backdrop-blur-sm pointer-events-none;
+    position: fixed;
+    height: 100vh;
+    height: 100dvh;
+  }
+}
