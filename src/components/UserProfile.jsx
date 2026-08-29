@@ -32,6 +32,12 @@ export default function UserProfile() {
   const handlePostDeleted = (deletedID) => {
     setPosts((prev) => prev.filter((post) => post.id !== deletedID));
   };
+  function handlePostShared(newPost) {
+    setPosts((prev) => [
+      { ...newPost, _id: newPost._id || newPost.id },
+      ...prev,
+    ]);
+  }
 
   async function getUserProfile() {
     try {
@@ -252,6 +258,9 @@ export default function UserProfile() {
                     publisherID={post.user._id}
                     publisherName={post.user.name}
                     postDiscribation={post.body}
+                    onShare={handlePostShared}
+                    isShare={post.isShare}
+                    sharedPost={post.sharedPost}
                   />
                 ))}
               </div>
