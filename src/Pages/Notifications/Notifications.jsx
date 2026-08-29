@@ -35,6 +35,7 @@ export default function Notifications() {
 
     try {
       const { data } = await axios.request(options);
+console.log(data);
 
       setNotifications(data.data.notifications || []);
       setLoading(false);

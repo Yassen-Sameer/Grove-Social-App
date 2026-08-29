@@ -180,13 +180,6 @@ export default function UpdatePost() {
                 alt="Preview"
                 className="w-full h-full max-h-[300px] object-cover rounded-2xl"
               />
-              <button
-                type="button"
-                onClick={handleRemoveImage}
-                className="absolute top-3 right-3 size-8 rounded-full bg-black/60 hover:bg-black/80 border border-white/20 flex items-center justify-center text-white transition-all cursor-pointer"
-              >
-                <X className="size-4" />
-              </button>
             </div>
           ) : (
             <div className="relative rounded-2xl border border-dashed border-white/15 bg-white/[0.02] p-4 text-center hover:border-[#1DB854]/50 transition-colors cursor-pointer group">
@@ -211,7 +204,6 @@ export default function UpdatePost() {
           )}
 
           <div className="pt-4 border-t border-white/10 flex items-center justify-end gap-3">
-
             {submitLoading || !hasChanges ? (
               ""
             ) : (

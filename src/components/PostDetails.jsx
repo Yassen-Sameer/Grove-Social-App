@@ -28,6 +28,7 @@ import { faHeart as faHeartRegular } from "@fortawesome/free-regular-svg-icons";
 import { faBookmark as solidBookmark } from "@fortawesome/free-solid-svg-icons";
 import { faBookmark as regularBookmark } from "@fortawesome/free-regular-svg-icons";
 import Comments from "./Comments";
+import UpdatePost from "./UpdatePost";
 
 export default function PostDetails() {
   const { id } = useParams();
@@ -363,7 +364,9 @@ export default function PostDetails() {
 
                       {isMenuOpen && (
                         <div className="absolute right-0 mt-2 w-36 bg-[#0B1A14] border border-white/10 rounded-2xl shadow-xl py-1.5 z-20 backdrop-blur-xl">
-                          <button className="w-full flex items-center gap-2.5 px-3.5 py-2 text-xs text-gray-200 hover:text-white hover:bg-white/5 transition-colors cursor-pointer">
+                          <button onClick={()=>{
+                            navigate(`/update/${id}`)
+                          }} className="w-full flex items-center gap-2.5 px-3.5 py-2 text-xs text-gray-200 hover:text-white hover:bg-white/5 transition-colors cursor-pointer">
                             <Pencil className="size-3.5 text-[#1DB854]" />
                             <span>Update Post</span>
                           </button>
@@ -445,13 +448,17 @@ export default function PostDetails() {
                     alt="Comment preview"
                     className="max-h-[220px] object-cover rounded-2xl"
                   />
-                  <button
-                    type="button"
-                    onClick={handleRemoveCommentImage}
-                    className="absolute top-2 right-2 size-7 rounded-full bg-black/60 hover:bg-black/80 border border-white/20 flex items-center justify-center text-white transition-all cursor-pointer"
-                  >
-                    <X className="size-3.5" />
-                  </button>
+                  {IsUpdateComment ? (
+                    ""
+                  ) : (
+                    <button
+                      type="button"
+                      onClick={handleRemoveCommentImage}
+                      className="absolute top-2 right-2 size-7 rounded-full bg-black/60 hover:bg-black/80 border border-white/20 flex items-center justify-center text-white transition-all cursor-pointer"
+                    >
+                      <X className="size-3.5" />
+                    </button>
+                  )}
                 </div>
               )}
 
